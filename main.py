@@ -8,6 +8,7 @@ class CursesInterface:
         9: "\t",
         10: "\r\n",
         27: "ESCAPE",
+        127: "BACKSPACE",
         258: "DOWN",
         259: "UP",
         260: "LEFT",
@@ -48,4 +49,6 @@ while not quitting:
     key = ci.get_key()
     print(key, end="")
     sys.stdout.flush()
+    if key.upper() in ["Q", "E", "ESCAPE", "X"]:
+        quitting = True
 ci.restore()
